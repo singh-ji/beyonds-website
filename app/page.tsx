@@ -59,7 +59,7 @@ export default function Home() {
       <header className="site-header">
         <div className="nav-shell">
           <a className="brand" href="#top" aria-label="BeyondShift home">
-            Beyond<span>Shift</span>
+            <img className="site-logo" src="/beyondshift-logo.png" alt="" />
           </a>
           <nav className="desktop-nav" aria-label="Main navigation">
             {navigation.slice(0, 4).map(([label, href]) => <a key={href} href={href}>{label}</a>)}
@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="shell footer-top"><a className="brand footer-brand" href="#top">Beyond<span>Shift</span></a><p>Learning for life.<br /><em>Growth for the future.</em></p><a className="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+        <div className="shell footer-top"><a className="footer-logo-frame" href="#top" aria-label="BeyondShift home"><img className="site-logo footer-logo" src="/beyondshift-logo.png" alt="" /></a><p>Learning for life.<br /><em>Growth for the future.</em></p><a className="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} BeyondShift. All rights reserved.</span><span>Triad Spark Innovation Private Limited · CIN U62011KA2024PTC183889</span></div>
       </footer>
     </main>

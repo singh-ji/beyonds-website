@@ -24,28 +24,12 @@ function Arrow() {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "unconfigured">("idle");
 
-  async function submitForm(event: FormEvent<HTMLFormElement>) {
+  function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setFormStatus("sending");
-
-    try {
-      const form = event.currentTarget;
-      const response = await fetch("https://formsubmit.co/ajax/medhaviwork29@gmail.com", {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-
-      if (!response.ok) throw new Error("Submission failed");
-      form.reset();
-      setFormStatus("success");
-    } catch {
-      setFormStatus("error");
-    }
+    setFormStatus("unconfigured");
   }
-
   const navigation = [
     ["About Us", "#about"],
     ["The Need", "#need"],
@@ -87,20 +71,20 @@ export default function Home() {
         <div className="hero-orbit orbit-two" aria-hidden="true" />
         <div className="shell hero-content">
           <p className="eyebrow light">Continuous learning and growth for frontline workers</p>
-          <h1>Helping frontline workers <em>learn, grow</em> and build a better life.</h1>
+          <h1>Helping frontline workers <span className="accent accent-light">learn, grow</span> and build a better life.</h1>
           <div className="hero-bottom">
             <p>BeyondShift is a continuous learning and growth platform for frontline workers, using engaging micro-dramas to help them build the knowledge, confidence and capabilities they need for life, work and everything beyond.</p>
             <a className="button" href="#contact">Talk to us <Arrow /></a>
           </div>
         </div>
-        <div className="hero-rule" aria-hidden="true"><span>Learn</span><i>Grow</i><span>Beyond</span></div>
+        <div className="hero-rule" aria-hidden="true"><span>Learn</span><span className="accent-light">Grow</span><span>Beyond</span></div>
       </section>
 
       <section className="section about-section" id="about">
         <div className="shell">
           <p className="eyebrow">About us</p>
           <div className="about-heading">
-            <h2>Learning for life.<br /><em>Growth for the future.</em></h2>
+            <h2>Learning for life.<br /><span className="accent">Growth for the future.</span></h2>
             <p>BeyondShift exists to make useful, practical knowledge accessible to the people who keep businesses moving.</p>
           </div>
           <div className="vision-grid">
@@ -123,16 +107,16 @@ export default function Home() {
         </div>
         <div className="shell solution-panel">
           <p className="eyebrow light">Our solution</p>
-          <h3>Practical knowledge,<br /><em>made engaging.</em></h3>
+          <h3>Practical knowledge,<br /><span className="accent-light">made engaging.</span></h3>
           <p>BeyondShift brings practical, relevant, accessible, and micro-sized bits to frontline workers beyond job-specific training.</p>
-          <div className="solution-mark" aria-hidden="true"><span>Micro</span><i>Drama</i></div>
+          <div className="solution-mark" aria-hidden="true"><span>Micro</span><span className="solution-mark-secondary">Drama</span></div>
         </div>
       </section>
 
       <section className="section platform-section" id="platform">
         <div className="shell">
           <div className="section-intro">
-            <div><p className="eyebrow">Our platform</p><h2>Practical knowledge. <em>Made for real life.</em></h2></div>
+            <div><p className="eyebrow">Our platform</p><h2>Practical knowledge. <span className="accent">Made for real life.</span></h2></div>
             <div className="platform-stat"><strong>320+</strong><span>micro-sized bits across 16 learning modules — and growing.</span></div>
           </div>
           <div className="category-grid">
@@ -143,7 +127,7 @@ export default function Home() {
           </div>
           <div className="refresh-card">
             <p className="eyebrow">Always relevant</p>
-            <h3>Workers don&apos;t just learn more. They keep learning <em>what matters.</em></h3>
+            <h3>Workers don&apos;t just learn more. They keep learning <span className="accent">what matters.</span></h3>
             <p>Government schemes emerge. Digital risks evolve. Financial realities change. New opportunities and challenges appear. That&apos;s why we continuously create, update and refresh our content.</p>
           </div>
         </div>
@@ -152,7 +136,7 @@ export default function Home() {
       <section className="section business-section" id="for-businesses">
         <div className="shell">
           <div className="section-intro business-intro">
-            <div><p className="eyebrow light">For businesses</p><h2>A more confident, capable, and <em>empowered</em> workforce.</h2></div>
+            <div><p className="eyebrow light">For businesses</p><h2>A more confident, capable, and <span className="accent-light">empowered</span> workforce.</h2></div>
             <div><h3>Beyond learning, a better-connected workforce.</h3><p>Simple ways to communicate with, listen to and stay connected with the people who keep your business moving.</p></div>
           </div>
           <div className="capability-grid">
@@ -167,17 +151,10 @@ export default function Home() {
         <div className="shell contact-grid">
           <div className="contact-copy">
             <p className="eyebrow light">Contact us</p>
-            <h2>Let&apos;s build a better workforce, <em>together.</em></h2>
-            <p>If you&apos;re looking to provide meaningful, continuous learning to your frontline workforce, we&apos;d love to hear from you.</p>
-            <a href="mailto:medhaviwork29@gmail.com">medhaviwork29@gmail.com <Arrow /></a>
-            <div className="legal-details">
-              <strong>Beyond Shift | Triad Spark Innovation Private Limited</strong>
-              <span>CIN: U62011KA2024PTC183889</span>
-            </div>
+            <h2>Let&apos;s build a better workforce, <span className="accent-light">together.</span></h2>
+            <p>BeyondShift is a learning and growth initiative from Triad Spark Innovation Private Limited.</p>
           </div>
           <form className="contact-form" onSubmit={submitForm}>
-            <input type="hidden" name="_subject" value="New BeyondShift lead" />
-            <input type="hidden" name="_captcha" value="false" />
             <div className="field-row">
               <label><span>Name *</span><input name="name" type="text" placeholder="Your name" required autoComplete="name" /></label>
               <label><span>Company *</span><input name="company" type="text" placeholder="Company name" required autoComplete="organization" /></label>
@@ -188,15 +165,15 @@ export default function Home() {
             </div>
             <label><span>Message</span><textarea name="message" placeholder="Tell us about your frontline workforce and what you’re looking for" rows={4} /></label>
             <div className="form-footer">
-              <button className="button" type="submit" disabled={formStatus === "sending"}>{formStatus === "sending" ? "Sending…" : "Send enquiry"} <Arrow /></button>
-              <p className={`form-status ${formStatus}`} aria-live="polite">{formStatus === "success" ? "Thanks — we’ll be in touch soon." : formStatus === "error" ? "Something went wrong. Please email us directly." : "We’ll only use your details to respond to your enquiry."}</p>
+              <button className="button" type="submit">Send enquiry <Arrow /></button>
+              <p className={`form-status ${formStatus}`} aria-live="polite">{formStatus === "unconfigured" ? "Form delivery is not connected yet." : "Your details will only be used to respond to your enquiry."}</p>
             </div>
           </form>
         </div>
       </section>
 
       <footer>
-        <div className="shell footer-top"><a className="footer-logo-frame" href="#top" aria-label="BeyondShift home"><img className="site-logo footer-logo" src="/beyondshift-logo.png" alt="" /></a><p>Learning for life.<br /><em>Growth for the future.</em></p><a className="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+        <div className="shell footer-top"><a className="footer-logo-frame" href="#top" aria-label="BeyondShift home"><img className="site-logo footer-logo" src="/beyondshift-logo.png" alt="" /></a><p>Learning for life.<br /><span className="accent-light">Growth for the future.</span></p><a className="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} BeyondShift. All rights reserved.</span><span>Triad Spark Innovation Private Limited · CIN U62011KA2024PTC183889</span></div>
       </footer>
     </main>

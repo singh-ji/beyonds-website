@@ -1,0 +1,99 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "BeyondShift Color System",
+  "version": "1.0.0",
+  "color": {
+    "palette": {
+      "navy": {
+        "900": { "$type": "color", "$value": "#101920" },
+        "800": { "$type": "color", "$value": "#17222C" },
+        "700": { "$type": "color", "$value": "#24333E" }
+      },
+      "cream": {
+        "50": { "$type": "color", "$value": "#FFFAF0" },
+        "100": { "$type": "color", "$value": "#F5F1E7" },
+        "200": { "$type": "color", "$value": "#E9E1D2" }
+      },
+      "orange": {
+        "500": { "$type": "color", "$value": "#EF8B31" },
+        "400": { "$type": "color", "$value": "#FF9B40" }
+      },
+      "gold": { "300": { "$type": "color", "$value": "#FFC97C" } },
+      "sage": { "600": { "$type": "color", "$value": "#5E7964" } },
+      "slate": {
+        "600": { "$type": "color", "$value": "#5C666D" },
+        "500": { "$type": "color", "$value": "#77838A" },
+        "400": { "$type": "color", "$value": "#AEB8BD" }
+      },
+      "white": { "$type": "color", "$value": "#FFFFFF" }
+    },
+    "semantic": {
+      "background": {
+        "canvas": { "$type": "color", "$value": "{color.palette.cream.100}" },
+        "subtle": { "$type": "color", "$value": "{color.palette.cream.200}" },
+        "surface": { "$type": "color", "$value": "{color.palette.white}" },
+        "inverse": { "$type": "color", "$value": "{color.palette.navy.800}" },
+        "inverseRaised": { "$type": "color", "$value": "{color.palette.navy.700}" }
+      },
+      "text": {
+        "primary": { "$type": "color", "$value": "{color.palette.navy.800}" },
+        "secondary": { "$type": "color", "$value": "{color.palette.slate.600}" },
+        "inverse": { "$type": "color", "$value": "{color.palette.white}" },
+        "inverseMuted": { "$type": "color", "$value": "{color.palette.slate.400}" },
+        "brand": { "$type": "color", "$value": "{color.palette.orange.500}" }
+      },
+      "action": {
+        "primary": { "$type": "color", "$value": "{color.palette.orange.500}" },
+        "primaryHover": { "$type": "color", "$value": "{color.palette.orange.400}" },
+        "onPrimary": { "$type": "color", "$value": "{color.palette.navy.800}" },
+        "secondary": { "$type": "color", "$value": "{color.palette.navy.800}" }
+      },
+      "border": {
+        "default": { "$type": "color", "$value": "#17222C29" },
+        "inverse": { "$type": "color", "$value": "#F5F1E72E" }
+      },
+      "focus": { "ring": { "$type": "color", "$value": "{color.palette.orange.500}" } },
+      "selection": { "active": { "$type": "color", "$value": "#EF8B3124" } }
+    },
+    "status": {
+      "success": {
+        "strong": { "$type": "color", "$value": "#3F6B4A" },
+        "soft": { "$type": "color", "$value": "#E2EDE3" }
+      },
+      "warning": {
+        "strong": { "$type": "color", "$value": "#9A641F" },
+        "soft": { "$type": "color", "$value": "#F8E8CC" }
+      },
+      "danger": {
+        "strong": { "$type": "color", "$value": "#A84330" },
+        "soft": { "$type": "color", "$value": "#F5DDD7" }
+      },
+      "info": {
+        "strong": { "$type": "color", "$value": "#396A86" },
+        "soft": { "$type": "color", "$value": "#DDEAF0" }
+      }
+    },
+    "data": {
+      "series1": { "$type": "color", "$value": "{color.palette.orange.500}" },
+      "series2": { "$type": "color", "$value": "{color.palette.sage.600}" },
+      "series3": { "$type": "color", "$value": "{color.palette.navy.700}" },
+      "series4": { "$type": "color", "$value": "{color.palette.gold.300}" },
+      "series5": { "$type": "color", "$value": "#4D7E9A" },
+      "series6": { "$type": "color", "$value": "#80687E" }
+    }
+  },
+  "themes": {
+    "dark": {
+      "background": {
+        "canvas": "{color.palette.navy.900}",
+        "subtle": "{color.palette.navy.800}",
+        "surface": "{color.palette.navy.700}"
+      },
+      "text": {
+        "primary": "{color.palette.white}",
+        "secondary": "{color.palette.slate.400}"
+      },
+      "border": { "default": "#F5F1E72E" }
+    }
+  }
+}
